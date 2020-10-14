@@ -49,7 +49,7 @@ install: all
 	chmod 644 ${DESTDIR}${BIN_DIR}/${BIN}
 	chmod 644 ${DESTDIR}${MAN_DIR}/${MAN1}
 
-uninstall: all
+uninstall:
 	${RM} ${DESTDIR}${BIN_DIR}/${BIN}
 	${RM} ${DESTDIR}${MAN_DIR}/${MAN1}
 

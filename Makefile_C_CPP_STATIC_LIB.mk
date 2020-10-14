@@ -51,7 +51,7 @@ install: all
 	chmod 644 ${DESTDIR}${LIB_DIR}/lib${LIB}.a
 	chmod 644 ${DESTDIR}${MAN_DIR}/${MAN3}
 
-uninstall: all
+uninstall:
 	${RM} ${DESTDIR}${HDR_DIR}/${LIB}.h
 	${RM} ${DESTDIR}${LIB_DIR}/lib${LIB}.a
 	${RM} ${DESTDIR}${MAN_DIR}/${MAN3}
