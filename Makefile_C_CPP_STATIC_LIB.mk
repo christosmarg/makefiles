@@ -2,35 +2,14 @@
 # <++>
 .POSIX:
 
+include config.mk
+
 LIB = <++>
-VERSION = <++>
 DIST = ${LIB}-${VERSION}
 MAN3 = ${LIB}.3
-PREFIX = /usr/local
-MAN_DIR = ${PREFIX}/man/man3
-INC_DIR = ${PREFIX}/include
-LIB_DIR = ${PREFIX}/lib
 
-#EXT = <++>
-#SRC = ${wildcard *.${EXT}}
-#OBJ = ${SRC:%.${EXT}=%.o}
 SRC = <++>
 OBJ = <++>
-
-AR = ar
-ARFLAGS = rs
-CC = <++>
-INCS = -Iinclude
-CPPFLAGS = -DVERSION=\"${VERSION}\"
-CFLAGS = -Wall -std=<++> -pedantic -O3 ${INCS} ${CPPFLAGS}
-LDFLAGS = -Llib <++>
-
-CP = cp -f
-RM = rm -f
-RM_DIR = rm -rf
-MKDIR = mkdir -p
-TAR = tar -cf
-GZIP = gzip
 
 all: options ${LIB}
 

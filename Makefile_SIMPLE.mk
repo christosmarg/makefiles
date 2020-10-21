@@ -2,6 +2,8 @@
 # <++>
 .POSIX:
 
+# maybe move to config.mk
+
 BIN = <++>
 VERSION = <++>
 DIST = ${BIN}-${VERSION}

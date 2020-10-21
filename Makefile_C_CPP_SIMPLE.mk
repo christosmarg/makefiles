@@ -2,32 +2,14 @@
 # <++>
 .POSIX:
 
+include config.mk
+
 BIN = <++>
-VERSION = <++>
 DIST = ${BIN}-${VERSION}
 MAN1 = ${BIN}.1
-PREFIX = /usr/local
-MAN_DIR = ${PREFIX}/man/man1
-BIN_DIR = ${PREFIX}/bin
 
-#EXT = <++>
-#SRC = ${wildcard *.${EXT}}
-#OBJ = ${SRC:%.${EXT}=%.o}
 SRC = <++>
 OBJ = <++>
-
-CC = <++>
-INCS = -Iinclude
-CPPFLAGS = -DVERSION=\"${VERSION}\"
-CFLAGS = -Wall -std=<++> -pedantic -O3 ${INCS} ${CPPFLAGS}
-LDFLAGS = -Llib <++>
-
-CP = cp -f
-RM = rm -f
-RM_DIR = rm -rf
-MKDIR = mkdir -p
-TAR = tar -cf
-GZIP = gzip
 
 all: options ${BIN}
 
