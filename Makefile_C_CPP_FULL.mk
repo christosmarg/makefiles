@@ -12,8 +12,9 @@ SRC_DIR = <++>
 OBJ_DIR = <++>
 BIN_DIR = <++>
 
+EXT = <++>
 SRC = <++>
-OBJ = <++>
+OBJ = ${SRC:${SRC_DIR}.${EXT}=${OBJ_DIR}.o}
 
 all: options ${BIN}
 
@@ -28,9 +29,9 @@ ${BIN}: ${OBJ}
 	${CC} ${LDFLAGS} ${OBJ} ${LDLIBS} -o $@
 	${MV} ${BIN} ${BIN_DIR}
 
-${OBJ}: ${SRC}
+.${EXT}.o:
 	${MKDIR} ${OBJ_DIR}
-	${CC} ${CFLAGS} -c ${SRC} -o $@
+	${CC} ${CFLAGS} -c $<
 
 dist: clean
 	${MKDIR} ${DIST}

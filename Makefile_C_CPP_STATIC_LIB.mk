@@ -8,8 +8,9 @@ LIB = <++>
 DIST = ${LIB}-${VERSION}
 MAN3 = ${LIB}.3
 
+EXT = <++>
 SRC = <++>
-OBJ = <++>
+OBJ = ${SRC:.${EXT}=.o}
 
 all: options ${LIB}
 
@@ -17,13 +18,15 @@ options:
 	@echo ${LIB} build options:
 	@echo "CFLAGS   = ${CFLAGS}"
 	@echo "LDFLAGS  = ${LDFLAGS}"
+	@echo "ARFLAGS  = ${ARFLAGS}"
 	@echo "CC       = ${CC}"
+	@echo "AR       = ${AR}"
 
 ${LIB}: ${OBJ}
 	${AR} ${ARFLAGS} lib${LIB}.a ${OBJ}
 
-${OBJ}: ${SRC}
-	${CC} ${CFLAGS} -c ${SRC} -o $@
+.${EXT}.o
+	${CC} ${CFLAGS} -c $<
 
 dist: clean
 	${MKDIR} ${DIST}
@@ -34,7 +37,7 @@ dist: clean
 
 install: all
 	${MKDIR} ${DESTDIR}${LIB_DIR} ${DESTDIR}${INC_DIR} ${DESTDIR}${MAN_DIR}
-	${CP} ${LIB}.h ${DESTDIR}${INC_DIR}
+	${CP} ${HDR} ${DESTDIR}${INC_DIR}
 	${CP} lib${LIB}.a ${DESTDIR}${LIB_DIR}
 	${CP} ${MAN3} ${DESTDIR}${MAN_DIR}
 	sed "s/VERSION/${VERSION}/g" < ${MAN3} > ${DESTDIR}${MAN_DIR}/${MAN3}

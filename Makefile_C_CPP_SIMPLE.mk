@@ -8,8 +8,9 @@ BIN = <++>
 DIST = ${BIN}-${VERSION}
 MAN1 = ${BIN}.1
 
+EXT = <++>
 SRC = <++>
-OBJ = <++>
+OBJ = ${SRC:.${EXT}=.o}
 
 all: options ${BIN}
 
@@ -22,8 +23,8 @@ options:
 ${BIN}: ${OBJ}
 	${CC} ${LDFLAGS} ${OBJ} -o $@
 
-${OBJ}: ${SRC}
-	${CC} ${CFLAGS} -c ${SRC} -o $@
+.${EXT}.o
+	${CC} ${CFLAGS} -c $<
 
 dist: clean
 	${MKDIR} ${DIST}

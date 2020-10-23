@@ -20,6 +20,7 @@ TAR = tar -cf
 GZIP = gzip
 
 all: ${BIN}
+	chmod +x ${BIN}
 
 dist:
 	${MKDIR} ${DIST}
