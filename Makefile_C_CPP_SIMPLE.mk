@@ -24,7 +24,7 @@ ${BIN}: ${OBJ}
 	${CC} ${LDFLAGS} ${OBJ} -o $@
 
 .${EXT}.o
-	${CC} ${CFLAGS} -c $<
+	${CC} -c ${CFLAGS} $<
 
 dist: clean
 	${MKDIR} ${DIST}

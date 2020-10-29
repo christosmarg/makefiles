@@ -26,12 +26,12 @@ options:
 
 ${BIN}: ${OBJ}
 	${MKDIR} ${BIN_DIR}
-	${CC} ${LDFLAGS} ${OBJ} ${LDLIBS} -o $@
+	${CC} ${LDFLAGS} ${OBJ} -o $@
 	${MV} ${BIN} ${BIN_DIR}
 
 .${EXT}.o:
 	${MKDIR} ${OBJ_DIR}
-	${CC} ${CFLAGS} -c $<
+	${CC} -c ${CFLAGS} $<
 
 dist: clean
 	${MKDIR} ${DIST}
