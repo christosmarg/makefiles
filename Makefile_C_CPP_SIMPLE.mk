@@ -23,7 +23,7 @@ options:
 ${BIN}: ${OBJ}
 	${CC} ${LDFLAGS} ${OBJ} -o $@
 
-.${EXT}.o
+.${EXT}.o:
 	${CC} -c ${CFLAGS} $<
 
 dist: clean

@@ -25,7 +25,7 @@ options:
 ${LIB}: ${OBJ}
 	${AR} ${ARFLAGS} lib${LIB}.a ${OBJ}
 
-.${EXT}.o
+.${EXT}.o:
 	${CC} -c ${CFLAGS} $<
 
 dist: clean
@@ -37,7 +37,7 @@ dist: clean
 
 install: all
 	${MKDIR} ${DESTDIR}${LIB_DIR} ${DESTDIR}${INC_DIR} ${DESTDIR}${MAN_DIR}
-	${CP} ${HDR} ${DESTDIR}${INC_DIR}
+	${CP} ${LIB}.h ${DESTDIR}${INC_DIR}
 	${CP} lib${LIB}.a ${DESTDIR}${LIB_DIR}
 	${CP} ${MAN3} ${DESTDIR}${MAN_DIR}
 	sed "s/VERSION/${VERSION}/g" < ${MAN3} > ${DESTDIR}${MAN_DIR}/${MAN3}
